@@ -2,8 +2,9 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import requests
 import random
+import os
 
-updater = Updater(token='yada', use_context=True)
+updater = Updater(token=os.environ['TELEGRAM_KEY'], use_context=True)
 
 def start(update, context):
     context.bot.send_message(chat_id=update.message.chat_id, text="I'm a bot, please talk to me!")
