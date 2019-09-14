@@ -7,7 +7,11 @@ import os
 updater = Updater(token=os.environ['TELEGRAM_KEY'], use_context=True)
 
 def start(update, context):
-    context.bot.send_message(chat_id=update.message.chat_id, text="I'm a bot, please talk to me!")
+    context.bot.send_message(chat_id=update.message.chat_id, text="This bot will help you select random leetcode questions. Select a /random_question to start!")
+
+def help(update, context):
+    context.bot.send_message(chat_id=update.message.chat_id, text="Commands to issue:\n/random_question - produces a random question")
+
 
 def random_question(update, context):
     LEETCODE_LINK = "https://leetcode.com/problems/"
