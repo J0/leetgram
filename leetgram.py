@@ -10,7 +10,8 @@ def start(update, context):
     context.bot.send_message(chat_id=update.message.chat_id, text="This bot will help you select random leetcode questions. Select a /random_question to start!")
 
 def help(update, context):
-    context.bot.send_message(chat_id=update.message.chat_id, text="Commands to issue:\n/random_question - produces a random question")
+    context.bot.send_message(chat_id=update.message.chat_id, text="Commands available:\n/random - produces a random question\n\n To build:\n /interview - Display upcoming interviews\n /systems: Random System Design question. \n /calc - do math\n /happy - tell me a joke ")
+
 
 
 def random_question(update, context):
@@ -23,7 +24,9 @@ def random_question(update, context):
    
 dispatcher = updater.dispatcher
 start_handler = CommandHandler('start', start)
-random_question_handler = CommandHandler('random_question', random_question)
+random_question_handler = CommandHandler('random', random_question)
+help_handler = CommandHandler('help', help)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(random_question_handler)
+dispatcher.add_handler(help_handler)
 updater.start_polling()
